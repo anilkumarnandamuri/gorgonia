@@ -15,7 +15,7 @@ Gorgonia:
 
 #Why Use Gorgonia?#
 
-The main reason to use Gorgonia is developer comfort. If you're using a Go stack extensively, now you have access to the ability to create production-ready machine learning systems in an environment that you are already familiar and comfortable with. 
+The main reason to use Gorgonia is developer comfort. If you're using a Go stack extensively, now you have access to the ability to create production-ready machine learning systems in an environment that you are already familiar and comfortable with.
 
 ML/AI at large is usually split into two stages: the experimental stage where one builds various models, test and retest; and the deployed state where a model after being tested and played with, is deployed. This necessitate different roles like data scientist and data engineer.
 
@@ -25,7 +25,7 @@ Gorgonia aims to do the same, but for the Go environment. Gorgonia is currently 
 
 #Installation #
 
-The package is go-gettable: `go get -u github.com/chewxy/gorgonia`. 
+The package is go-gettable: `go get -u github.com/chewxy/gorgonia`.
 
 There are very few dependencies that Gorgonia uses - and they're all pretty stable, so as of now, there isn't a need for vendoring tools. These are the list of external packages that Gorgonia calls, ranked in order of reliance that this package has (subpackages are omitted):
 
@@ -46,9 +46,9 @@ There are very few dependencies that Gorgonia uses - and they're all pretty stab
 
 #Usage#
 
-Gorgonia works by creating a computation graph, and then executing it. Think of it as a programming language, but is limited to mathematical functions. In fact this is the dominant paradigm that the user should be used to thinking about. The computation graph is an [AST](http://en.wikipedia.org/wiki/Abstract_syntax_tree). 
+Gorgonia works by creating a computation graph, and then executing it. Think of it as a programming language, but is limited to mathematical functions. In fact this is the dominant paradigm that the user should be used to thinking about. The computation graph is an [AST](http://en.wikipedia.org/wiki/Abstract_syntax_tree).
 
-Microsoft's [CNTK](https://github.com/Microsoft/CNTK), with its BrainScript, is perhaps the best at exemplifying the idea that building of a computation graph and running of the computation graphs are different things, and that the user should be in different modes of thoughts when going about them. 
+Microsoft's [CNTK](https://github.com/Microsoft/CNTK), with its BrainScript, is perhaps the best at exemplifying the idea that building of a computation graph and running of the computation graphs are different things, and that the user should be in different modes of thoughts when going about them.
 
 Whilst Gorgonia's implementation doesn't enforce the separation of thought as far as CNTK's BrainScript does, the syntax does help a little bit.
 
@@ -116,7 +116,7 @@ Prior to release of Gorgonia, there was a third VM - a stack based VM that is si
 
 ##Differentiation##
 
-Gorgonia performs both symbolic and automatic differentiation. There are subtle differences between the two processes. The author has found that it's best to think of it this way - Automatic differentiation is differentiation that happens at runtime, concurrently with the execution of the graph, while symbolic differentiation is differentiation that happens during the compilation phase. 
+Gorgonia performs both symbolic and automatic differentiation. There are subtle differences between the two processes. The author has found that it's best to think of it this way - Automatic differentiation is differentiation that happens at runtime, concurrently with the execution of the graph, while symbolic differentiation is differentiation that happens during the compilation phase.
 
 Runtime of course, refers to the execution of the expression graph, not the program's actual runtime.
 
@@ -155,11 +155,11 @@ func main() {
 
 	fmt.Printf("z: %v", z.Value())
 
-	if xgrad, err := x.Grad(); err != nil {
+	if xgrad, err := x.Grad(); err == nil {
 		fmt.Printf("dz/dx: %v", xgrad)
 	}
 
-	if ygrad, err := y.Grad(); err != nil {
+	if ygrad, err := y.Grad(); err == nil {
 		fmt.Printf("dz/dy: %v", ygrad)
 	}
 
@@ -235,7 +235,7 @@ By the way, Gorgonia comes with nice-ish graph printing abilities. Here's an exa
 
 ![graph1](https://raw.githubusercontent.com/chewxy/gorgonia/master/media/exprGraph_example2.png)
 
-To read the graph is easy. The expression builds from bottom up, while the derivations build from top down. This way the derivative of each node is roughly on the same level. 
+To read the graph is easy. The expression builds from bottom up, while the derivations build from top down. This way the derivative of each node is roughly on the same level.
 
 Red-outlined nodes indicate that it's a root node. Green outlined nodes indicate that they're a leaf node. Nodes with a yellow background indicate that it's an input node. The dotted arrows indicate which node is the gradient node for the pointed-to node.
 
@@ -267,7 +267,7 @@ Gorgonia's API is as of right now, not considered stable. It will be stable from
 
 #Roadmap#
 
-Here are the goals for Gorgonia, sorted by importance 
+Here are the goals for Gorgonia, sorted by importance
 
 - [ ] 90+% test coverage. Current coverage is 50% for Gorgonia and 75% for the Tensor packages.
 - [ ] More advanced operations (like `einsum`). The current Tensor operators are pretty primitive.
@@ -284,7 +284,7 @@ Here are the goals for Gorgonia, sorted by importance
 #Goals#
 The primary goal for Gorgonia is to be a *highly performant* machine learning/graph computation-based library that can scale across multiple machines. It should bring the appeal of Go (simple compilation and deployment process) to the ML world. It's a long way from there currently, however, the baby steps are already there.
 
-The secondary goal for Gorgonia is to provide a platform for exploration for non-standard deep-learning and neural network related things. This includes things like neo-hebbian learning, corner-cutting algorithms, evolutionary algorithms and the like. 
+The secondary goal for Gorgonia is to provide a platform for exploration for non-standard deep-learning and neural network related things. This includes things like neo-hebbian learning, corner-cutting algorithms, evolutionary algorithms and the like.
 
 
 #Contributing#
@@ -295,7 +295,7 @@ See also: CONTRIBUTING.md
 
 
 ##Contributors and Significant Contributors##
-All contributions are welcome. However, there is a new class of contributor, called Significant Contributors. 
+All contributions are welcome. However, there is a new class of contributor, called Significant Contributors.
 
 A Significant Contributor is one who has shown *deep understanding* of how the library works and/or its environs.  Here are examples of what constitutes a Significant Contribution:
 
